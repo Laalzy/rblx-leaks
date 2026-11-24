@@ -1,3 +1,12 @@
+--[[
+idk if this a good ss executor script i deobf'ed it bcs i wanted okok
+ _          _         ____  
+| |    ___ | |    ___|  _ \ 
+| |   / _ \| |   / _ \ |_) |
+| |__| (_) | |__|  __/  _ < 
+|_____\___/|_____\___|_| \_\
+--]]
+
 local runService = game:GetService("RunService")
 local httpService = game:GetService("HttpService")
 local tweenService = game:GetService("TweenService")
