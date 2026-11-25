@@ -992,7 +992,8 @@ end
 
 installHook(_G, "http_request", "http_request")
 installHook(_G, "request", "request")
-installHook(_G, "http.request", "http.request")
+-- duplicated function, for what?
+-- installHook(_G, "http.request", "http.request")
 installHook(getgenv and getgenv() or _G, "http_request", "getgenv().http_request")
 installHook(getgenv and getgenv() or _G, "request", "getgenv().request")
 
@@ -1043,7 +1044,8 @@ if http and http.request then
   end)
 end
 
-do
+-- nope
+--[[ do
   local origGetUpvalues = debug and debug.getupvalues
   if origGetUpvalues then
     debug.getupvalues = wrap(function(f)
@@ -1065,6 +1067,6 @@ do
     end)
   end
 end
-
+--]]
 setStatus("Hooks installed. Mode: HOOK")
 refreshFound()
