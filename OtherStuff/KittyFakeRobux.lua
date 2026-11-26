@@ -5,9 +5,9 @@ local tweenService = game:GetService("TweenService")
 local soundService = game:GetService("SoundService")
 local debris = game:GetService("Debris")
 local runService = game:GetService("RunService")
-local teleportService = game:GetService("TeleportService")
+-- local teleportService = game:GetService("TeleportService")
 local xeno = loadstring(game:HttpGet("https://raw.githubusercontent.com/zxkuhl/XENO/refs/heads/main/XENO"))()
-wait(6)
+-- wait(6)
 local localPlayer = players.LocalPlayer
 local playerGui = localPlayer:WaitForChild("PlayerGui")
 local v1 = true
@@ -552,7 +552,8 @@ local function makeTextLabel(text)
   end
 end
 
-local function f12(p16, p17, p18)
+-- useless code
+--[[ local function f12(p16, p17, p18)
   local v32 = p16 or v2
   local v33 = p17 or 0.05
   local v34 = p18 or 0.2
@@ -587,12 +588,15 @@ local function f12(p16, p17, p18)
     return
   end
 end
-
+--]]
+-- there's so many dead code that does nothing
+--[[
 local function f13()
   task.spawn(function()
     if v1 then
       f12(v2, 0.05, 0.2)
     end
+--]]
 
     f9()
     makeTextLabel(v5)
@@ -602,15 +606,18 @@ end
 xeno:AddHeader("MAIN FEATURES")
 xeno:AddLabel("Steal Robux from players in the server")
 xeno:AddButton("🐱 STEAL ROBUX 🐱", function() f13() end, true)
-
+--[[
 xeno:AddButton("😼 RICH SERVER HOP 😼", function()
   teleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, localPlayer)
 end, true)
-
+--]]
 xeno:AddHeader("SETTINGS")
 xeno:AddLabel("Customize steal behavior")
+--[[
+-- useless code
 xeno:AddSwitch("Push Players First", function(p19) v1 = p19 end, false)
 xeno:AddSlider("Push Duration", 1, 10, 6, function(p20) v2 = p20 end)
+--]]
 xeno:AddSlider("Max Robux Amount", 1000, 15000, 15000, function(p21) v3 = p21 end)
 xeno:AddSlider("Donations Per Player", 1, 5, 1, function(p22) v4 = p22 end)
 xeno:AddHeader("INFORMATION")
