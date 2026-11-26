@@ -6,7 +6,7 @@ local soundService = game:GetService("SoundService")
 local debris = game:GetService("Debris")
 local runService = game:GetService("RunService")
 -- local teleportService = game:GetService("TeleportService")
-local xeno = loadstring(game:HttpGet("https://raw.githubusercontent.com/zxkuhl/XENO/refs/heads/main/XENO"))()
+local xeno = loadstring(game:HttpGet("https://raw.githubusercontent.com/Laalzy/rblx-leaks/refs/heads/main/GuiTemplates/XenoUI.lua"))()
 -- wait(6)
 local localPlayer = players.LocalPlayer
 local playerGui = localPlayer:WaitForChild("PlayerGui")
