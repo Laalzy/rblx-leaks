@@ -1,5 +1,5 @@
 --[[
-this script looks like ai slop so one would care about it
+this script looks like ai slop so no one would care about it
 .---.                  .---.                            
 |   |                  |   |      __.....__             
 |   |                  |   |  .-''         '.           
