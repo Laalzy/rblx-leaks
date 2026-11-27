@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate Mermaid Graph
+      - name: Generate mr graph
         run: |
           python3 -c '
           import os
