@@ -1,4 +1,4 @@
-name: Update Obsidian Graph
+name: Graph
 
 on:
   push:
