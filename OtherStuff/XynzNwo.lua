@@ -1649,22 +1649,6 @@ v17.Player:AddSection("Revive", "solar/heart-pulse-bold"):AddToggle("AutoRevive"
       v51 = false
       return
     end
-
---[[
--- bradar delete this                     
-    task.spawn(function()
-      while v51 do
-        if f41() and tick() - v52 >= 1 then
-          v52 = tick()
-        end
-
-        task.wait(0.25)
-      end
-    end)
-  end,
-})
---]]                     
-
 local function getTool()
   local character4 = localPlayer.Character
   return character4 and character4:FindFirstChildOfClass("Tool")
@@ -1837,15 +1821,6 @@ v17.Weapon:AddSection("Info Weapon", "solar/eye-bold"):AddParagraph({
   Title = "Weapon dipegang",
   Content = "-",
 })
-
---[[               
--- dead code                     
-task.spawn(function()
-  while task.wait(0.5) do
-    local v61 = f45((getTool()))
-  end
-end)
---]]
 local v62 = false
 local list8 = { "KO", "KOd", "KnockedOut", "Knocked", "Downed", "Down", "IsKO" }
 
@@ -2329,14 +2304,6 @@ local function f58(p19)
 
   table.insert(list11, soundService.DescendantAdded:Connect(f57))
 
---[[                            
-  task.spawn(function()
-    while v82 do
-      task.wait(0.2)
-    end
-  end)
-end
---]]
 local addSection10 = v17.Visual:AddSection("Jumpscare", "solar/eye-bold")
 
 addSection10:AddToggle("NoJumpscare", {
@@ -2345,23 +2312,6 @@ addSection10:AddToggle("NoJumpscare", {
   Default = false,
   Callback = function(value67) f58(value67) end,
 })
-
---[[
--- useless shit ok?
-addSection10:AddButton({
-  Title = "Jumpscare Preview (lokal)",
-  Description = "Tampilkan jumpscare Opah di layar kamu sendiri saja",
-  Icon = "solar/eye-bold",
-  Callback = function() end,
-})
-
-addSection10:AddButton({
-  Title = "🔴 FE Jumpscare SEMUA PLAYER",
-  Description = "Jumpscare via FE — keliatan & kedengaran semua player sekaligus",
-  Icon = "solar/danger-bold",
-  Callback = function() end,
-})
---]]
 local addParagraph2 = v17.Player:AddSection("Info", "solar/eye-bold"):AddParagraph({
   Title = "Nyawa (LivesHud)",
   Content = "-",
