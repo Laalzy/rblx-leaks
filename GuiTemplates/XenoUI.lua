@@ -1,4 +1,5 @@
---[[ first gui template that i deobfed
+--[[ 
+first gui template that i deobfed
  _          _         ____  
 | |    ___ | |    ___|  _ \ 
 | |   / _ \| |   / _ \ |_) |
@@ -80,7 +81,7 @@ local layoutOrder = 0
 local v4 = {}
 
 local xeno10 = Instance.new("ScreenGui")
-xeno10.Name = "XENO 1.0"
+xeno10.Name = "XENO 1.05"
 xeno10.ResetOnSpawn = false
 xeno10.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 xeno10.IgnoreGuiInset = true
