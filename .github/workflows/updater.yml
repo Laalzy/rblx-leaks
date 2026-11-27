@@ -1,0 +1,67 @@
+name: Update Obsidian Graph
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Mermaid Graph
+        run: |
+          python3 -c '
+          import os
+
+          lines = ["```mermaid", "graph TD", "    Root[rblx-leaks]"]
+          node_id = 0
+
+          dirs = sorted([d for d in os.listdir(".") if os.path.isdir(d) and not d.startswith(".")])
+          for d in dirs:
+              node_id += 1
+              d_id = f"dir_{node_id}"
+              lines.append(f"    Root --> {d_id}[{d}]")
+              
+              for root, _, files in os.walk(d):
+                  for f in sorted(files):
+                      if not f.startswith("."):
+                          node_id += 1
+                          f_id = f"file_{node_id}"
+                          lines.append(f"    {d_id} --> {f_id}({f})")
+
+          root_files = sorted([f for f in os.listdir(".") if os.path.isfile(f) and not f.startswith(".") and f != "README.md"])
+          for f in root_files:
+              node_id += 1
+              f_id = f"file_{node_id}"
+              lines.append(f"    Root --> {f_id}({f})")
+
+          lines.append("```")
+          graph = "\n".join(lines)
+
+          with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+
+          start = "<!-- GRAPH:START -->"
+          end = "<!-- GRAPH:END -->"
+          if start in content and end in content:
+              before = content.split(start)
+              after = content.split(end)
+              new_content = f"{before}{start}\n{graph}\n{end}{after}"
+              with open("README.md", "w", encoding="utf-8") as f:
+                  f.write(new_content)
+          '
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update repo graph"
+          git push
