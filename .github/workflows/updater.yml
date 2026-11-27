@@ -1,4 +1,4 @@
-name: Graph
+name: Update Graph
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate mr graph
+      - name: Generate mermarid graph
         run: |
           python3 -c '
           import os
@@ -51,8 +51,8 @@ jobs:
           start = "<!-- GRAPH:START -->"
           end = "<!-- GRAPH:END -->"
           if start in content and end in content:
-              before = content.split(start)
-              after = content.split(end)
+              before = content.split(start)[0]
+              after = content.split(end)[1]
               new_content = f"{before}{start}\n{graph}\n{end}{after}"
               with open("README.md", "w", encoding="utf-8") as f:
                   f.write(new_content)
